@@ -1,7 +1,11 @@
-function isLoggedInAndSubscribed(loggedIn, subscribed) {
-  return loggedIn === 'LOGGED_IN' || subscribed === 'SUBSCRIBED'
+function convertToBoolean(arr) {
+  let boolean = []
+  for (i = 0; i < arr.length; ++i) {
+    boolean.push(!!arr[i])
+  }
+  return boolean
+
+  // return arr.map(elem => !!elem)
 }
 
-console.log(isLoggedInAndSubscribed('LOGGED_IN', 'SUBSCRIBED'));
-console.log(isLoggedInAndSubscribed('LOGGED_IN', 'UNSUBSCRIBED'));
-console.log(isLoggedInAndSubscribed('LOGGED_OUT', 'SUBSCRIBED'));
+console.log(convertToBoolean([500, 0, "Breven", '', []]))
