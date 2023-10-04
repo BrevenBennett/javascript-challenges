@@ -1,11 +1,11 @@
-function convertToBoolean(arr) {
-  let boolean = []
-  for (i = 0; i < arr.length; ++i) {
-    boolean.push(!!arr[i])
-  }
-  return boolean
+async function firstSixIncomplete() {
+  const promise = await fetch("https://jsonplaceholder.typicode.com/todos")
 
-  // return arr.map(elem => !!elem)
+  const result = await promise.json()
+
+  const incompleteToDos = result.filter(elem => !elem.completed).slice(0, 6)
+
+  console.log(incompleteToDos)
 }
 
-console.log(convertToBoolean([500, 0, "Breven", '', []]))
+firstSixIncomplete();
